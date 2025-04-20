@@ -10,5 +10,11 @@ public class StringCalculatorTest {
 	void emptyStringReturnsZero() {
 	    assertEquals(0, new StringCalculator().add(""));
 	}
+	
+	@Test
+	void oneNumberReturnsValue() {
+	    StringCalculator calc = new StringCalculator();
+	    assertEquals(1, calc.add("1"));
+	}
 
 }
