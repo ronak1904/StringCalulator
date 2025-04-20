@@ -52,6 +52,13 @@ public class StringCalculatorTest {
 
 	    assertEquals("negative numbers not allowed: [-2, -4]", ex.getMessage());
 	}
+	
+	@Test
+	void supportsMultipleMultiCharDelimiters() {
+	    String input = "//[***][%]\n1***2%3";
+	    assertEquals(6, new StringCalculator().add(input));
+	}
+
 
 
 
