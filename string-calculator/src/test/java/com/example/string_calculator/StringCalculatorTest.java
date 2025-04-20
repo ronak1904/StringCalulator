@@ -40,6 +40,18 @@ public class StringCalculatorTest {
 	    StringCalculator calc = new StringCalculator();
 	    assertEquals(3, calc.add("//;\n1;2"));
 	}
+	
+	@Test
+	void negativeNumbersThrowException() {
+	    StringCalculator calc = new StringCalculator();
+
+	    Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+	        calc.add("1,-2,3,-4");
+	    });
+
+	    assertEquals("negative numbers not allowed: [-2, -4]", ex.getMessage());
+	}
+
 
 
 

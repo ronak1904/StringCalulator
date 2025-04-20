@@ -1,5 +1,9 @@
 package com.example.string_calculator;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
 public class StringCalculator {
 	
 	public int add(String numbers) {
@@ -14,14 +18,22 @@ public class StringCalculator {
 	    }
 
 	    String[] parts = numbers.split(delimiter);
+	    List<Integer> negatives = new ArrayList<>();
 	    int sum = 0;
+
 	    for (String part : parts) {
-	        sum += Integer.parseInt(part);
+	        int num = Integer.parseInt(part);
+	        if (num < 0) {
+	            negatives.add(num);
+	        } else {
+	            sum += num;
+	        }
 	    }
+
+	    if (!negatives.isEmpty()) {
+	        throw new IllegalArgumentException("negative numbers not allowed: " + negatives);
+	    }
+
 	    return sum;
 	}
-
-
-
-
 }
